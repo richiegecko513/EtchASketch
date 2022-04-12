@@ -1,0 +1,44 @@
+*{
+box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    flex: 1;
+    min-height: 100vh;
+}
+.header{
+    border: 2px black solid;
+    padding: 25px 0 25px 0;
+}
+
+.main{
+    border: 2px black solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.control_box{
+    border: 2px solid blue;
+    width: 300px;
+    height: 300px;
+}
+.container{
+    border: 2px black dotted;
+    width: 700px;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    flex-wrap: wrap;
+    border-radius: 1em;
+
+}
+
+.box{
+    width: calc(100%/16);
+    
+}
