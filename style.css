@@ -57,11 +57,6 @@ body{
 
 }
 
-.box{
-    width: calc(100%/16);
-    border: 1px solid #E5E4E2;
-    
-}
 
 .hovered{
     background-color: orange;
@@ -89,8 +84,7 @@ cursor: pointer;
     background-color: green;
 }
 
-.dropdown{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.grid-size
+{
+    text-align: center;
 }
