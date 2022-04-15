@@ -10,10 +10,10 @@ body{
     min-height: 100vh;
 }
 .header{
-    padding: 15px 0 15px 0;
+    padding: 5px 0 5px 0;
     background-color: #8FBC8F;
     text-align: center;
-    font-family: 'Bungee Shade', cursive;
+    font-family: "Lucida Console", "Courier New", monospace;
     color: white;
 }
 
@@ -31,11 +31,13 @@ body{
     border: 2px black solid;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    background-color:honeydew;
 }
 
 .control_box{
-    border: 2px solid blue;
+    border: 2px dotted olivedrab;
     width: 300px;
     height: 300px;
     display: flex;

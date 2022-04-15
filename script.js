@@ -1,9 +1,8 @@
 const sketchBox = document.querySelector('.container');
 const clear = document.querySelector('.erase');
 const sizes = document.querySelectorAll('.size');
-const colorPicker = document.querySelector('#choice');
 const rainbowColor = document.querySelector('#rainbow');
-const eraserButton = document.querySelector('#eraser')
+const defaultButton = document.querySelector('#default');
 
 let gridSize 
 
@@ -13,12 +12,11 @@ for (i=0; i<gridSize*gridSize; i++){
     box.className = 'box';
     const gridStyle = `width:${(1/gridSize)*100}%; height: ${(1/gridSize)*100}%; border: 1px solid #E5E4E2;`
     box.setAttribute('style',gridStyle)
-    box.addEventListener('mouseover',color)
     sketchBox.appendChild(box)
-}
+ }
+ colour()
 }
 makeGrid()
-const divList = document.querySelectorAll('.box')
 
 function changeSize(){
   sizes.forEach((button) =>{
@@ -46,17 +44,51 @@ function changeSize(){
   })
 }
 
-function erase() {
-  divList.forEach((div) => {
-    div.style.backgroundColor = "white";
-  });
+
+function generateRandomColor() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r},${g},${b})`;
 }
-let randomColor =  "#" + ((1<<24)*Math.random() | 0).toString(16)
+
+function erase(){
+  while(sketchBox.firstChild){
+    sketchBox.removeChild(sketchBox.firstChild)
+  }
+  makeGrid(gridSize)
+}
+
 clear.addEventListener('click', erase)
 
-function color(e) {
- e.target.style.backgroundColor = "seagreen"
+
+function colour(){
+let pixels=document.getElementsByClassName("box");
+for (let i=0;i<pixels.length;i++){
+  {
+    pixels[i].addEventListener("mouseover",function(){pixels[i].style.backgroundColor = pickColor()})
+  }
+}
 }
 
+function pickRGB(){
+  pickcolor = "rgb";
+}
 
+function pickRainbow(){
+  pickcolor = "rainbow"
+}
+
+function pickColor(){
+  if(pickcolor == "rgb") {
+    let rgb = document.querySelector('#colorchanger')
+    return rgb.value;
+  }
+  if(pickcolor == "rainbow"){
+    return generateRandomColor()
+  }
+}
+
+let pickcolor = "rgb"
+colour()
 changeSize()
